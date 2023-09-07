@@ -1,0 +1,25 @@
+{% extends 'layouts/index.html' %}
+
+{% block product %}
+    <div class="form_block" style="">
+        <form action="/product/create/" method="post" enctype="multipart/form-data" >
+                {% csrf_token %}
+                {% if user.is_anonymous %}
+                    <p style="font-size: 100px; "> You can't create a product</p>
+                    <h1>But you can Sign Up or Login ,if you have a account </h1>
+                    <h2 style="line-height: 50;">я не смог придумать как еще сделать фон на весь экран</h2>
+
+                {% else %}
+
+                {{ form.as_p }}
+                    <p>Create product</p>
+                <input type="text" name="test_field">
+
+                <input type="submit" value="Create">
+
+                {% endif %}
+
+
+        </form>
+    </div>
+{% endblock %}

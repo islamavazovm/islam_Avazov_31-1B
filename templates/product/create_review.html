@@ -1,0 +1,12 @@
+{% extends 'layouts/index.html' %}
+
+{% block review %}
+    <form action="/products/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <p>Create review</p>
+        <input type="text" name="test_field">
+
+        <input type="submit" value="Create">
+    </form>
+{% endblock %}

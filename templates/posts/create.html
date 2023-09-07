@@ -1,0 +1,14 @@
+{% extends 'layouts/index.html' %}
+
+{% block content %}
+    <form action="/posts/create/"  method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <p>Test field</p>
+        <input type="text" name="test_field">
+
+        <input type="submit" value="Create">
+    </form>
+{% endblock %}
+

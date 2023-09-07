@@ -1,0 +1,54 @@
+
+{% extends 'layouts/index.html' %}
+
+{% block product %}
+    <style type="text/css">
+        .product_block {
+            width: 80%;
+            {#margin-left: 5%;#}
+
+        }
+        .product_block > .image > img {
+            width: 60%;
+        }
+
+
+
+
+    </style>
+    <div class="product_block">
+        <div class="image">
+            <img src="/media/{{ product.image }}" alt="" >
+        </div>
+        <div class="info">
+            <h1>{{ product.title }}</h1>
+            <h4>Rate: {{ product.price }}</h4>
+            <h7>{{ product.compound }}</h7>
+        </div>
+    </div>
+{% endblock %}
+
+{% block review%}
+
+     <form action="/product/<int:id>/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <input type="submit" value="Create review">
+    </form>
+
+
+     <div class="product_review_block">
+        {% for review in product.connection_review.all %}
+         <div class="review">
+            <h1>Nickname: {{ review.nickname }}</h1>
+            <h2>Country: {{review.country}}</h2>
+            <h3>Comment: {{ review.comment }}</h3>
+            <h4>Mark:{{ review.grade }}</h4>
+            <h5>{{ review.create_data }}</h5>
+            <h6>{{ review.modification_data }}</h6>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

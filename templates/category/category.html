@@ -1,0 +1,16 @@
+{% extends 'layouts/index.html' %}
+
+{% block category %}
+    <div class="category">
+         {% for categories in category %}
+             <div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{ categories.kind_food }}</h5>
+    <p class="card-text">okeokeokeoke</p>
+    <a href="#" class="btn btn-primary">More category</a>
+  </div>
+</div>
+         {% endfor %}
+    </div>
+{% endblock %}
